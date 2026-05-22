@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scott Lindberg — Operational Leadership for Growing Companies</title>
+<meta name="description" content="Fractional COO, AI coaching, and operational consulting for midmarket companies that need senior executive capacity without a full-time hire.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-primary: #FAFAF8;
+    --bg-secondary: #F2F0EC;
+    --bg-card: #FFFFFF;
+    --bg-card-hover: #FDFDFB;
+    --bg-dark: #1A1F26;
+    --bg-dark-secondary: #232930;
+    --text-primary: #1A1F26;
+    --text-secondary: #4A5568;
+    --text-muted: #8494A7;
+    --accent: #B8864E;
+    --accent-hover: #A07440;
+    --accent-subtle: rgba(184, 134, 78, 0.08);
+    --border: rgba(26, 31, 38, 0.1);
+    --border-strong: rgba(26, 31, 38, 0.18);
+    --font-serif: 'Instrument Serif', Georgia, serif;
+    --font-sans: 'DM Sans', -apple-system, sans-serif;
+    --max-width: 1080px;
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 3rem;
+    --space-xl: 5rem;
+    --space-2xl: 8rem;
+  }
+
+  *, *::before, *::after {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: var(--space-sm) var(--space-md);
+    background: rgba(250, 250, 248, 0.9);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.3s;
+  }
+
+  .nav-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-brand {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+  }
+
+  .nav-name {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    color: var(--text-primary);
+    line-height: 1.2;
+  }
+
+  .nav-descriptor {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.3;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: var(--space-md);
+    align-items: center;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--text-primary); }
+
+  .nav-cta {
+    font-size: 0.82rem !important;
+    color: var(--accent) !important;
+    border: 1px solid rgba(184, 134, 78, 0.4);
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
+    transition: all 0.2s !important;
+  }
+
+  .nav-cta:hover {
+    background: var(--accent-subtle);
+    border-color: var(--accent);
+  }
+
+  .nav-toggle {
+    display: none;
+    background: none; border: none; cursor: pointer; padding: 0.5rem;
+  }
+
+  .nav-toggle span {
+    display: block; width: 22px; height: 2px;
+    background: var(--text-secondary); margin: 5px 0; transition: all 0.3s;
+  }
+
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .nav-toggle { display: block; }
+    .nav-links.open {
+      display: flex; flex-direction: column;
+      position: absolute; top: 100%; left: 0; right: 0;
+      background: rgba(250, 250, 248, 0.97);
+      backdrop-filter: blur(16px);
+      padding: var(--space-md);
+      border-bottom: 1px solid var(--border);
+      gap: var(--space-sm);
+    }
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: var(--space-xl) var(--space-md); }
+  .container { max-width: var(--max-width); margin: 0 auto; }
+
+  /* ── HERO ── */
+  .hero {
+    padding-top: calc(var(--space-2xl) + 2rem);
+    padding-bottom: var(--space-xl);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-label {
+    font-size: 0.76rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: var(--space-md);
+    opacity: 0; animation: fadeUp 0.6s ease forwards;
+  }
+
+  .hero h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+    line-height: 1.15;
+    font-weight: 400;
+    max-width: 780px;
+    margin-bottom: var(--space-md);
+    opacity: 0; animation: fadeUp 0.6s ease 0.1s forwards;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    max-width: 580px;
+    line-height: 1.7;
+    margin-bottom: var(--space-lg);
+    opacity: 0; animation: fadeUp 0.6s ease 0.2s forwards;
+  }
+
+  .hero-ctas {
+    display: flex; gap: var(--space-sm); flex-wrap: wrap; align-items: center;
+    opacity: 0; animation: fadeUp 0.6s ease 0.3s forwards;
+  }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--accent); color: #fff;
+    font-family: var(--font-sans); font-size: 0.9rem; font-weight: 500;
+    text-decoration: none; border-radius: 5px; border: none; cursor: pointer;
+    transition: all 0.2s; letter-spacing: 0.01em;
+  }
+
+  .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: transparent; color: var(--text-secondary);
+    font-family: var(--font-sans); font-size: 0.9rem;
+    text-decoration: none; border-radius: 5px;
+    border: 1px solid var(--border-strong);
+    transition: all 0.2s; cursor: pointer;
+  }
+
+  .btn-secondary:hover { border-color: var(--text-muted); color: var(--text-primary); }
+
+  .hero-proof {
+    margin-top: var(--space-lg);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--border);
+    display: flex; gap: var(--space-lg); flex-wrap: wrap;
+    opacity: 0; animation: fadeUp 0.6s ease 0.45s forwards;
+  }
+
+  .proof-item { display: flex; flex-direction: column; gap: 0.15rem; }
+
+  .proof-number {
+    font-family: var(--font-serif);
+    font-size: 1.8rem; color: var(--text-primary); line-height: 1.1;
+  }
+
+  .proof-label { font-size: 0.78rem; color: var(--text-muted); }
+
+  /* ── PROBLEM ── */
+  .problem { background: var(--bg-secondary); }
+
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: var(--space-md);
+  }
+
+  .section-head {
+    font-family: var(--font-serif);
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    line-height: 1.2; font-weight: 400;
+    max-width: 700px;
+    margin-bottom: var(--space-lg);
+  }
+
+  .problem-list {
+    display: grid; grid-template-columns: 1fr;
+    gap: var(--space-md); max-width: 700px;
+  }
+
+  .problem-item { display: flex; gap: var(--space-sm); align-items: flex-start; }
+
+  .problem-icon {
+    flex-shrink: 0; width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--accent-subtle);
+    border: 1px solid rgba(184, 134, 78, 0.15);
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 0.1rem;
+  }
+
+  .problem-icon svg { width: 14px; height: 14px; stroke: var(--accent); }
+
+  .problem-text { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; }
+  .problem-text strong { color: var(--text-primary); font-weight: 500; }
+
+  /* ── GUIDE ── */
+  .guide-text p {
+    color: var(--text-secondary); font-size: 0.95rem;
+    margin-bottom: var(--space-sm); line-height: 1.7;
+  }
+
+  .guide-text p strong { color: var(--text-primary); font-weight: 500; }
+
+  .credentials {
+    display: flex; flex-wrap: wrap; gap: 0.6rem;
+    margin-top: var(--space-md);
+  }
+
+  .credential-tag {
+    font-size: 0.75rem; padding: 0.35rem 0.75rem;
+    border: 1px solid var(--border-strong); border-radius: 3px;
+    color: var(--text-muted); letter-spacing: 0.02em;
+    background: var(--bg-card);
+  }
+
+  /* ── PLAN ── */
+  .plan { background: var(--bg-secondary); }
+
+  .plan-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-md); margin-top: var(--space-lg);
+  }
+
+  .plan-step {
+    padding: var(--space-md);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    transition: border-color 0.2s;
+  }
+
+  .plan-step:hover { border-color: rgba(184, 134, 78, 0.3); }
+
+  .step-number {
+    font-family: var(--font-serif);
+    font-size: 2rem; color: var(--accent);
+    line-height: 1; margin-bottom: var(--space-xs); opacity: 0.7;
+  }
+
+  .step-title {
+    font-family: var(--font-serif);
+    font-size: 1.25rem; margin-bottom: 0.6rem;
+  }
+
+  .step-desc { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.65; }
+
+  /* ── SERVICES ── */
+  .services-intro {
+    color: var(--text-secondary); font-size: 0.95rem;
+    max-width: 620px; margin-bottom: var(--space-lg); line-height: 1.7;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .service-card {
+    padding: var(--space-md);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    transition: all 0.25s;
+    text-decoration: none; color: inherit;
+    display: flex; flex-direction: column;
+    position: relative; overflow: hidden;
+    cursor: pointer;
+  }
+
+  .service-card::after {
+    content: ''; position: absolute;
+    bottom: 0; left: 0; right: 0; height: 2px;
+    background: var(--accent);
+    transform: scaleX(0); transition: transform 0.3s;
+    transform-origin: left;
+  }
+
+  .service-card:hover {
+    border-color: rgba(184, 134, 78, 0.35);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+
+  .service-card:hover::after { transform: scaleX(1); }
+
+  .service-tag {
+    display: inline-block;
+    font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--accent); background: var(--accent-subtle);
+    padding: 0.2rem 0.55rem; border-radius: 3px;
+    margin-bottom: 0.8rem; width: fit-content;
+  }
+
+  .service-title {
+    font-family: var(--font-serif);
+    font-size: 1.3rem; margin-bottom: 0.75rem; line-height: 1.25;
+  }
+
+  .service-desc {
+    font-size: 0.88rem; color: var(--text-secondary);
+    line-height: 1.65; flex: 1;
+  }
+
+  .service-link {
+    margin-top: var(--space-sm);
+    font-size: 0.82rem; color: var(--accent);
+    display: flex; align-items: center; gap: 0.35rem;
+    transition: gap 0.2s;
+  }
+
+  .service-card:hover .service-link { gap: 0.6rem; }
+
+  /* ── SERVICE ACCORDION ── */
+  .service-accordion {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    opacity: 0;
+  }
+
+  .service-card.expanded .service-accordion {
+    opacity: 1;
+  }
+
+  .service-accordion-inner {
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--border);
+    margin-top: var(--space-sm);
+  }
+
+  .accordion-section-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+    margin-top: var(--space-sm);
+  }
+
+  .accordion-section-label:first-child {
+    margin-top: 0;
+  }
+
+  .accordion-text {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-bottom: 0.4rem;
+  }
+
+  .accordion-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.6rem 0;
+  }
+
+  .accordion-list li {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    padding-left: 1.1rem;
+    position: relative;
+    margin-bottom: 0.25rem;
+  }
+
+  .accordion-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.5;
+  }
+
+  .accordion-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: var(--space-sm);
+    padding: 0.55rem 1.2rem;
+    background: var(--accent);
+    color: #fff;
+    font-family: var(--font-sans);
+    font-size: 0.82rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.2s;
+  }
+
+  .accordion-cta:hover {
+    background: var(--accent-hover);
+  }
+
+  .service-card.expanded .service-link {
+    color: var(--text-muted);
+  }
+
+  .service-card.expanded .service-link::after {
+    content: ' (collapse)';
+    font-size: 0.75rem;
+  }
+
+  /* ── RESULTS ── */
+  .results { background: var(--bg-secondary); }
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-md); margin-top: var(--space-lg);
+  }
+
+  .result-card {
+    padding: var(--space-md);
+    border-left: 2px solid rgba(184, 134, 78, 0.4);
+  }
+
+  .result-stat {
+    font-family: var(--font-serif);
+    font-size: 2.2rem; color: var(--accent);
+    line-height: 1.1; margin-bottom: 0.4rem;
+  }
+
+  .result-context { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.55; }
+
+  .result-source {
+    font-size: 0.72rem; color: var(--text-muted);
+    margin-top: 0.5rem; font-style: italic;
+  }
+
+  /* ── QUOTE ── */
+  .divider-quote {
+    padding: var(--space-xl) var(--space-md);
+    text-align: center;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .divider-quote blockquote {
+    font-family: var(--font-serif);
+    font-size: clamp(1.2rem, 2.8vw, 1.6rem);
+    font-style: italic; color: var(--text-secondary);
+    max-width: 600px; margin: 0 auto; line-height: 1.5;
+  }
+
+  .divider-quote .quote-placeholder {
+    font-family: var(--font-sans);
+    font-size: 0.82rem; color: var(--text-muted);
+    border: 1px dashed var(--border-strong);
+    padding: var(--space-md) var(--space-lg);
+    border-radius: 6px;
+    max-width: 500px; margin: 0 auto;
+  }
+
+  /* ── STAKES ── */
+  .stakes-content { max-width: 650px; }
+
+  .stakes-content p {
+    color: var(--text-secondary); font-size: 1rem;
+    margin-bottom: var(--space-sm); line-height: 1.7;
+  }
+
+  .stakes-content p strong { color: var(--text-primary); }
+
+  /* ── FINAL CTA ── */
+  .final-cta {
+    background: var(--bg-dark);
+    color: #E5E2DC;
+  }
+
+  .final-cta .section-label { color: var(--accent); }
+
+  .final-cta .section-head { color: #E5E2DC; }
+
+  .cta-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-lg); }
+
+  @media (min-width: 700px) {
+    .cta-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+      position: relative;
+    }
+    .cta-grid::before {
+      content: ''; position: absolute;
+      left: 50%; top: 0; bottom: 0; width: 1px;
+      background: rgba(255,255,255,0.08);
+    }
+    .cta-or {
+      display: flex; align-items: center; justify-content: center;
+      position: absolute; left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--bg-dark);
+      border: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.72rem; color: rgba(255,255,255,0.3);
+    }
+  }
+
+  .cta-or { display: none; }
+  @media (min-width: 700px) { .cta-or { display: flex; } }
+
+  .cta-option h3 {
+    font-family: var(--font-serif);
+    font-size: 1.35rem; margin-bottom: 0.6rem;
+    color: #E5E2DC;
+  }
+
+  .cta-option p {
+    color: #8A95A5; font-size: 0.9rem;
+    margin-bottom: var(--space-md); line-height: 1.65;
+  }
+
+  .final-cta .btn-primary {
+    background: var(--accent); color: #fff;
+  }
+
+  .final-cta .btn-primary:hover { background: var(--accent-hover); }
+
+  /* ── CONTACT FORM ── */
+  .contact-form { display: flex; flex-direction: column; gap: 0.75rem; }
+
+  .form-field { display: flex; flex-direction: column; gap: 0.3rem; }
+
+  .form-field label {
+    font-size: 0.78rem; color: #5C6A7A; letter-spacing: 0.03em;
+  }
+
+  .form-field input,
+  .form-field textarea {
+    padding: 0.6rem 0.8rem;
+    background: var(--bg-dark-secondary);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px; color: #E5E2DC;
+    font-family: var(--font-sans); font-size: 0.88rem;
+    transition: border-color 0.2s; outline: none;
+  }
+
+  .form-field input:focus,
+  .form-field textarea:focus { border-color: var(--accent); }
+
+  .form-field textarea { resize: vertical; min-height: 80px; }
+
+  .form-field input::placeholder,
+  .form-field textarea::placeholder { color: #4A5568; }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: var(--space-lg) var(--space-md);
+    background: var(--bg-dark);
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .footer-inner {
+    max-width: var(--max-width); margin: 0 auto;
+    display: flex; justify-content: space-between;
+    align-items: flex-start; flex-wrap: wrap; gap: var(--space-md);
+  }
+
+  .footer-brand { display: flex; flex-direction: column; gap: 0.3rem; }
+
+  .footer-name {
+    font-family: var(--font-serif);
+    font-size: 1rem; color: #E5E2DC;
+  }
+
+  .footer-tagline { font-size: 0.78rem; color: #5C6A7A; }
+
+  .footer-links { display: flex; gap: var(--space-md); list-style: none; }
+
+  .footer-links a {
+    font-size: 0.82rem; color: #5C6A7A;
+    text-decoration: none; transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: #8A95A5; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in {
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    section { padding: var(--space-lg) var(--space-sm); }
+    .hero { padding-top: calc(var(--space-xl) + 2rem); }
+    .hero-proof { gap: var(--space-md); }
+    .proof-item { min-width: 120px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .results-grid { grid-template-columns: 1fr 1fr; }
+    .plan-steps { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════ NAV ════════════════════ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">
+      <span class="nav-name">Scott Lindberg</span>
+      <span class="nav-descriptor">Operational Leadership</span>
+    </a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="https://cal.com/stlindberg/30min" target="_blank" rel="noopener" class="nav-cta">Book a Conversation</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ════════════════════ HERO ════════════════════ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-label">Fractional COO &amp; Operations Consulting</div>
+
+    <!-- HEADLINE: Option picked. Alternatives noted in build notes below. -->
+    <h1>The projects that would actually grow your business are <em>stuck on the whiteboard.</em></h1>
+
+    <p class="hero-sub">
+      You've outgrown founder-led operations but can't justify a quarter-million-dollar hire. I embed with your team, drive the initiatives that keep getting pushed to next quarter, and build the systems so they stay moving after I'm gone.
+    </p>
+    <div class="hero-ctas">
+      <a href="https://cal.com/stlindberg/30min" target="_blank" rel="noopener" class="btn-primary">Book a Conversation &#8594;</a>
+      <a href="#services" class="btn-secondary">See How It Works</a>
+    </div>
+    <div class="hero-proof">
+      <div class="proof-item">
+        <span class="proof-number">25+</span>
+        <span class="proof-label">Years leading operations</span>
+      </div>
+      <div class="proof-item">
+        <span class="proof-number">$2.5M+</span>
+        <span class="proof-label">Validated savings delivered</span>
+      </div>
+      <div class="proof-item">
+        <span class="proof-number">6</span>
+        <span class="proof-label">Industries operated in</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ PROBLEM ════════════════════ -->
+<section class="problem fade-in">
+  <div class="container">
+    <div class="section-label">The Pattern</div>
+    <h2 class="section-head">You've seen this before. Probably this week.</h2>
+    <div class="problem-list">
+      <div class="problem-item">
+        <div class="problem-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </div>
+        <p class="problem-text">
+          <strong>Key initiatives keep slipping.</strong> The projects that would actually move the business forward get pushed to next quarter because nobody has the bandwidth to drive them.
+        </p>
+      </div>
+      <div class="problem-item">
+        <div class="problem-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <p class="problem-text">
+          <strong>You're still the bottleneck.</strong> Every operational decision flows through you because nobody else has the experience to make the call.
+        </p>
+      </div>
+      <div class="problem-item">
+        <div class="problem-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/></svg>
+        </div>
+        <p class="problem-text">
+          <strong>Your team is stretched thin.</strong> Good people doing good work, but not enough leadership capacity. You need more horsepower without adding a $250K headcount.
+        </p>
+      </div>
+      <div class="problem-item">
+        <div class="problem-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <p class="problem-text">
+          <strong>Technology is moving faster than your team can adopt it.</strong> AI is changing how your competitors operate. You know your people should be using it, but you don't have the time or expertise to figure out where to start, or how to do it without creating risk.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ GUIDE ════════════════════ -->
+<section class="guide fade-in" id="about">
+  <div class="container">
+    <div class="section-label">Who You're Working With</div>
+    <h2 class="section-head">Senior operational leadership, without the full-time price tag.</h2>
+    <div class="guide-text">
+      <p>
+        I don't replace anyone on your team. I'm the experienced operational leader who comes alongside your people to move the initiatives that keep stalling, build the systems that should already exist, and develop the managers who are ready for more responsibility.
+      </p>
+      <p>
+        My background is unusual: a <strong>West Point</strong> engineering degree and a <strong>Yale School of Management</strong> MBA, followed by 25 years running large-scale operations at <strong>Amazon</strong>, <strong>Georgia-Pacific</strong>, and in energy infrastructure consulting at <strong>MARA Holdings</strong>. I've led fulfillment operations with hundreds of people, managed $21M freight budgets, and closed a manufacturing facility with zero safety incidents.
+      </p>
+      <p>
+        I also bring something most operations consultants can't: <strong>practical AI coaching</strong> that makes your team permanently more productive. Not selling you software. Not implementing a platform. Teaching your people to use the powerful AI tools that already exist, safely and effectively, so the productivity gains compound long after the engagement ends.
+      </p>
+      <div class="credentials">
+        <span class="credential-tag">West Point, Systems Engineering</span>
+        <span class="credential-tag">Yale School of Management</span>
+        <span class="credential-tag">Amazon</span>
+        <span class="credential-tag">Georgia-Pacific</span>
+        <span class="credential-tag">MARA Holdings</span>
+        <span class="credential-tag">U.S. Army Veteran</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ PLAN ════════════════════ -->
+<section class="plan fade-in">
+  <div class="container">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-head">Three steps. No complexity.</h2>
+    <div class="plan-steps">
+      <div class="plan-step">
+        <div class="step-number">1</div>
+        <h3 class="step-title">A real conversation.</h3>
+        <p class="step-desc">
+          30 minutes. No pitch. You describe what's stuck and where you're stretched. If there's a fit, we talk about which engagement makes sense. If there isn't, I'll say so and point you somewhere better.
+        </p>
+      </div>
+      <div class="plan-step">
+        <div class="step-number">2</div>
+        <h3 class="step-title">Find the bottleneck.</h3>
+        <p class="step-desc">
+          Within the first week, the constraint is mapped: capacity, systems, or people? A clear picture and a plan with specific initiatives, not a 40-page strategy deck.
+        </p>
+      </div>
+      <div class="plan-step">
+        <div class="step-number">3</div>
+        <h3 class="step-title">Move the needle.</h3>
+        <p class="step-desc">
+          Execution alongside your team. Monthly operational reviews, initiative tracking, and systems built to keep working after the engagement ends. Progress you can measure.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ SERVICES ════════════════════ -->
+<section class="services fade-in" id="services">
+  <div class="container">
+    <div class="section-label">How We Work Together</div>
+    <h2 class="section-head">Three ways in, depending on where you are.</h2>
+    <p class="services-intro">
+      Every engagement starts with a conversation. The right fit depends on what you need right now. Some companies need to get their team up to speed on new technology before they fall behind. Some need ongoing operational leadership. Some need a specific problem solved.
+    </p>
+    <div class="services-grid">
+
+      <!-- BUCKET 1: Technology Readiness (Entry Point) -->
+      <div class="service-card" onclick="toggleAccordion(this)">
+        <span class="service-tag">Where most companies start</span>
+        <h3 class="service-title">Technology Readiness</h3>
+        <p class="service-desc">
+          AI is changing how your competitors operate. Digital assets are changing how businesses transact. Your team needs to adopt these tools or risk falling behind. I coach your people hands-on: practical AI skills they use immediately, digital asset strategy where it applies, and guardrails that protect the business. Not a vendor selling software; a coach teaching your team to fish. Results in 60 days.
+        </p>
+        <span class="service-link">Learn more &#8594;</span>
+        <div class="service-accordion">
+          <div class="service-accordion-inner">
+            <div class="accordion-section-label">What this looks like</div>
+            <ul class="accordion-list">
+              <li>One-on-one AI coaching sessions tailored to each team member's actual role and workload</li>
+              <li>Every participant leaves with a working AI project they use immediately; not a demo, a real tool</li>
+              <li>AI guardrails document: what to use, what to avoid, and how to protect sensitive information</li>
+              <li>Organization-wide AI strategy document written in plain language for leadership decisions</li>
+              <li>Optional Lunch &amp; Learn session for the broader team (no added cost)</li>
+            </ul>
+            <div class="accordion-section-label">Who this is for</div>
+            <p class="accordion-text">
+              Leadership teams that know AI will change their operations but need a guide, not a vendor. Organizations where the team is curious but nobody has the time or expertise to figure out where to start safely. Companies exploring Bitcoin or digital asset strategy and need someone who understands both the technology and the operational implications.
+            </p>
+            <div class="accordion-section-label">The outcome</div>
+            <p class="accordion-text">
+              Your key initiatives finally move forward because your team has the tools to handle the day-to-day work that was consuming all their capacity. Productivity gains that compound after the engagement ends because your people own the skills, not a subscription.
+            </p>
+            <a href="https://cal.com/stlindberg/30min" target="_blank" rel="noopener" class="accordion-cta">Book a conversation &#8594;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- BUCKET 2: Bolt-On Operations -->
+      <div class="service-card" onclick="toggleAccordion(this)">
+        <span class="service-tag">Ongoing partnership</span>
+        <h3 class="service-title">Bolt-On Operations</h3>
+        <p class="service-desc">
+          Dedicated senior operational leadership, typically one day a week. Whether that's fractional COO capacity, interim leadership during a transition, or strategic coaching for an existing director of operations or chief of staff, the outcome is the same: your stalled initiatives start moving again. AI coaching and technology strategy included under one retainer.
+        </p>
+        <span class="service-link">Learn more &#8594;</span>
+        <div class="service-accordion">
+          <div class="service-accordion-inner">
+            <div class="accordion-section-label">Three modes, one retainer</div>
+            <ul class="accordion-list">
+              <li><strong>Fractional COO:</strong> I operate as your part-time chief operating officer. Monthly operational reviews, initiative tracking, team development, and the judgment calls that require executive experience.</li>
+              <li><strong>Interim leadership:</strong> Your VP Ops left, or you're in a transition. I step in with full operational authority until you hire permanently or the transition is complete.</li>
+              <li><strong>Strategic coaching:</strong> You have a director of operations or chief of staff who's ready for more. I coach them into the leader your company needs, with direct mentorship and structured development.</li>
+            </ul>
+            <div class="accordion-section-label">What's included</div>
+            <ul class="accordion-list">
+              <li>Dedicated weekly engagement (typically 8-10 hours per week)</li>
+              <li>Monthly operational reviews with leadership</li>
+              <li>Initiative tracking and accountability systems</li>
+              <li>AI coaching for your team: included, not a separate engagement</li>
+              <li>Direct access via email and phone between sessions</li>
+            </ul>
+            <div class="accordion-section-label">Who this is for</div>
+            <p class="accordion-text">
+              Growth-stage companies (typically 20-200 employees) that have outgrown founder-led operations but can't justify a $250K+ full-time COO. Businesses where the CEO is still the operational bottleneck and needs to get out of the weeds to focus on growth.
+            </p>
+            <a href="https://cal.com/stlindberg/30min" target="_blank" rel="noopener" class="accordion-cta">Book a conversation &#8594;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- BUCKET 3: Operational Projects -->
+      <div class="service-card" onclick="toggleAccordion(this)">
+        <span class="service-tag">Targeted projects</span>
+        <h3 class="service-title">Operational Projects</h3>
+        <p class="service-desc">
+          Specific operational challenges with defined outcomes. Warehouse and light manufacturing optimization (safety, productivity, efficiency). Research and analysis (sales, marketing, finance). Change management or complex initiative leadership. Executive-caliber talent and an Ivy League education at an independent consultant's rate.
+        </p>
+        <span class="service-link">Learn more &#8594;</span>
+        <div class="service-accordion">
+          <div class="service-accordion-inner">
+            <div class="accordion-section-label">Project types</div>
+            <ul class="accordion-list">
+              <li><strong>Warehouse &amp; manufacturing ops:</strong> Safety programs, productivity improvement, capacity analysis, distribution footprint optimization, labor planning</li>
+              <li><strong>Research &amp; analysis:</strong> Market analysis, competitive intelligence, energy infrastructure due diligence, financial modeling, strategic planning support</li>
+              <li><strong>Change management:</strong> Facility closures, merger integrations, organizational restructuring, process redesigns</li>
+              <li><strong>Initiative leadership:</strong> A specific project that needs an experienced leader to drive it from kickoff to completion</li>
+            </ul>
+            <div class="accordion-section-label">How it works</div>
+            <p class="accordion-text">
+              Flat project fee with a defined scope and timeline. For smaller engagements or exploratory work, hourly arrangements are available. Every project starts with a scoping conversation to define what success looks like and what it will take to get there.
+            </p>
+            <div class="accordion-section-label">Track record</div>
+            <p class="accordion-text">
+              $1M annualized savings from a distribution center turnaround. $800K+ validated savings from continuous improvement events. 40% inventory capacity increase while reducing footprint 30%. Incident-free facility closure through a 75-day transition. These results came from the same type of targeted, defined-scope operational work.
+            </p>
+            <a href="https://cal.com/stlindberg/30min" target="_blank" rel="noopener" class="accordion-cta">Book a conversation &#8594;</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ RESULTS ════════════════════ -->
+<section class="results fade-in" id="results">
+  <div class="container">
+    <div class="section-label">Results</div>
+    <h2 class="section-head">The numbers from real engagements.</h2>
+    <div class="results-grid">
+      <div class="result-card">
+        <div class="result-stat">$1M</div>
+        <p class="result-context">Annualized savings from shift restructuring at a 427K sq ft distribution center</p>
+        <p class="result-source">Peak Achievement Athletics</p>
+      </div>
+      <div class="result-card">
+        <div class="result-stat">$800K+</div>
+        <p class="result-context">Validated savings from Kaizen events across multiple fulfillment operations</p>
+        <p class="result-source">Amazon</p>
+      </div>
+      <div class="result-card">
+        <div class="result-stat">40%</div>
+        <p class="result-context">Inventory capacity increase while reducing square footage by 30%. Annual rent savings over $800K.</p>
+        <p class="result-source">Hillsdale Furniture</p>
+      </div>
+      <div class="result-card">
+        <div class="result-stat">80%</div>
+        <p class="result-context">Reduction in recordable safety incidents over 3 years through systematic operational changes</p>
+        <p class="result-source">Hillsdale Furniture</p>
+      </div>
+      <div class="result-card">
+        <div class="result-stat">0</div>
+        <p class="result-context">Safety incidents during facility closure: 30 days pre-announcement through 45 days post</p>
+        <p class="result-source">Georgia-Pacific</p>
+      </div>
+      <div class="result-card">
+        <div class="result-stat">73% &#8594; 92%</div>
+        <p class="result-context">2-day ground coverage improvement through 3PL partnership and distribution footprint redesign</p>
+        <p class="result-source">Hillsdale Furniture</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ QUOTE PLACEHOLDER ════════════════════ -->
+<div class="divider-quote fade-in">
+  <div class="quote-placeholder">
+    &#9998;&ensp;Quote placeholder. Scott to select a quote for this spot.
+  </div>
+</div>
+
+<!-- ════════════════════ STAKES ════════════════════ -->
+<section class="stakes fade-in">
+  <div class="container">
+    <div class="section-label">The Cost of Waiting</div>
+    <h2 class="section-head">Every quarter those initiatives sit, the gap widens.</h2>
+    <div class="stakes-content">
+      <p>
+        The projects on your whiteboard right now are there because they matter. They're the ones that would unlock growth, reduce risk, or fix the operational drag that's slowing everything down.
+      </p>
+      <p>
+        Every quarter they stay on the whiteboard is a quarter your competitors use to build the systems you haven't built yet. The companies that solve the operational capacity problem first don't just grow faster. <strong>They compound the advantage.</strong>
+      </p>
+      <p>
+        The AI adoption window is narrowing. Organizations training their teams now are building a durable capability edge. The ones waiting for "the right time" are falling behind in ways that get harder to reverse with each passing month.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ FINAL CTA ════════════════════ -->
+<section class="final-cta fade-in" id="contact">
+  <div class="container">
+    <div class="section-label">Next Step</div>
+    <h2 class="section-head">Let's figure out if there's a fit.</h2>
+    <div class="cta-grid">
+      <div class="cta-option">
+        <h3>Book a conversation.</h3>
+        <p>
+          30 minutes. No pitch, no pressure. You describe what's going on operationally. I'll tell you honestly whether I can help, and if so, how. If there's no fit, I'll say so and point you in a better direction.
+        </p>
+        <a href="https://cal.com/stlindberg/30min" target="_blank" rel="noopener" class="btn-primary">Schedule a Call &#8594;</a>
+      </div>
+      <div class="cta-or">or</div>
+      <div class="cta-option">
+        <h3>Send a note.</h3>
+        <p>
+          If you'd rather start with an email, that works too. Tell me a little about your situation and I'll get back to you within 24 hours.
+        </p>
+        <a href="mailto:stlindberg@pm.me?subject=Inquiry%20from%20your%20website&body=Hi%20Scott%2C%0A%0AHere%27s%20a%20little%20about%20what%20I%27m%20dealing%20with%3A%0A%0A" class="btn-primary" style="background: transparent; border: 1px solid rgba(184, 134, 78, 0.5); color: var(--accent); text-align: center; justify-content: center;">Send an Email &#8594;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════ FOOTER ════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="footer-name">Scott Lindberg</span>
+      <span class="footer-tagline">Louisville, KY &middot; stlindberg@pm.me</span>
+    </div>
+    <ul class="footer-links">
+      <li><a href="https://www.linkedin.com/in/stlindberg/" target="_blank" rel="noopener">LinkedIn</a></li>
+    </ul>
+  </div>
+</footer>
+
+<!-- ════════════════════ SCROLL ANIMATION ════════════════════ -->
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  /* ── ACCORDION TOGGLE ── */
+  function toggleAccordion(card) {
+    const accordion = card.querySelector('.service-accordion');
+    if (!accordion) return;
+
+    const isExpanded = card.classList.contains('expanded');
+
+    /* collapse all others first */
+    document.querySelectorAll('.service-card.expanded').forEach(other => {
+      if (other !== card) {
+        other.classList.remove('expanded');
+        other.querySelector('.service-accordion').style.maxHeight = '0';
+      }
+    });
+
+    if (isExpanded) {
+      card.classList.remove('expanded');
+      accordion.style.maxHeight = '0';
+    } else {
+      card.classList.add('expanded');
+      accordion.style.maxHeight = accordion.scrollHeight + 'px';
+    }
+  }
+
+  /* prevent cal.com links inside accordion from toggling the card */
+  document.querySelectorAll('.accordion-cta').forEach(link => {
+    link.addEventListener('click', e => e.stopPropagation());
+  });
+</script>
+
+</body>
+</html>
