@@ -287,6 +287,56 @@
   .problem-text strong { color: var(--text-primary); font-weight: 500; }
 
   /* ── GUIDE ── */
+  .guide-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--space-xl);
+    align-items: start;
+    margin-top: var(--space-lg);
+  }
+
+  .guide-photo-wrap {
+    position: sticky;
+    top: 100px;
+  }
+
+  .guide-photo {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 6px;
+    filter: grayscale(15%);
+    transition: filter 0.3s;
+  }
+
+  .guide-photo:hover {
+    filter: grayscale(0%);
+  }
+
+  .guide-photo-name {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    margin-top: 0.75rem;
+  }
+
+  .guide-photo-location {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 0.15rem;
+  }
+
+  @media (max-width: 700px) {
+    .guide-layout {
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+    .guide-photo-wrap {
+      position: static;
+      max-width: 220px;
+    }
+  }
+
   .guide-text p {
     color: var(--text-secondary); font-size: 0.95rem;
     margin-bottom: var(--space-sm); line-height: 1.7;
@@ -797,23 +847,30 @@
   <div class="container">
     <div class="section-label">Who You're Working With</div>
     <h2 class="section-head">Senior operational leadership, without the full-time price tag.</h2>
-    <div class="guide-text">
-      <p>
-        I don't replace anyone on your team. I'm the experienced operational leader who comes alongside your people to move the initiatives that keep stalling, build the systems that should already exist, and develop the managers who are ready for more responsibility.
-      </p>
-      <p>
-        My background is unusual: a <strong>West Point</strong> engineering degree and a <strong>Yale School of Management</strong> MBA, followed by 25 years running large-scale operations at <strong>Amazon</strong>, <strong>Georgia-Pacific</strong>, and in energy infrastructure consulting at <strong>MARA Holdings</strong>. I've led fulfillment operations with hundreds of people, managed $21M freight budgets, and closed a manufacturing facility with zero safety incidents.
-      </p>
-      <p>
-        I also bring something most operations consultants can't: <strong>practical AI coaching</strong> that makes your team permanently more productive. Not selling you software. Not implementing a platform. Teaching your people to use the powerful AI tools that already exist, safely and effectively, so the productivity gains compound long after the engagement ends.
-      </p>
-      <div class="credentials">
-        <span class="credential-tag">West Point, Systems Engineering</span>
-        <span class="credential-tag">Yale School of Management</span>
-        <span class="credential-tag">Amazon</span>
-        <span class="credential-tag">Georgia-Pacific</span>
-        <span class="credential-tag">MARA Holdings</span>
-        <span class="credential-tag">U.S. Army Veteran</span>
+    <div class="guide-layout">
+      <div class="guide-photo-wrap">
+        <img src="headshot.png" alt="Scott Lindberg" class="guide-photo">
+        <div class="guide-photo-name">Scott Lindberg</div>
+        <div class="guide-photo-location">Louisville, KY</div>
+      </div>
+      <div class="guide-text">
+        <p>
+          I don't replace anyone on your team. I'm the experienced operational leader who comes alongside your people to move the initiatives that keep stalling, build the systems that should already exist, and develop the managers who are ready for more responsibility.
+        </p>
+        <p>
+          My background is unusual: a <strong>West Point</strong> engineering degree and a <strong>Yale School of Management</strong> MBA, followed by 25 years running large-scale operations at <strong>Amazon</strong>, <strong>Georgia-Pacific</strong>, and in energy infrastructure consulting at <strong>MARA Holdings</strong>. I've led fulfillment operations with hundreds of people, managed $21M freight budgets, and closed a manufacturing facility with zero safety incidents.
+        </p>
+        <p>
+          I also bring something most operations consultants can't: <strong>practical AI coaching</strong> that makes your team permanently more productive. Not selling you software. Not implementing a platform. Teaching your people to use the powerful AI tools that already exist, safely and effectively, so the productivity gains compound long after the engagement ends.
+        </p>
+        <div class="credentials">
+          <span class="credential-tag">West Point, Systems Engineering</span>
+          <span class="credential-tag">Yale School of Management</span>
+          <span class="credential-tag">Amazon</span>
+          <span class="credential-tag">Georgia-Pacific</span>
+          <span class="credential-tag">MARA Holdings</span>
+          <span class="credential-tag">U.S. Army Veteran</span>
+        </div>
       </div>
     </div>
   </div>
